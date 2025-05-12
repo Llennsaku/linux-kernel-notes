@@ -1,6 +1,6 @@
-# idk  
+# 一些linux终端常用命令
 
-### 查询磁盘的一些命令
+## 查询磁盘的一些命令
 
 fdisk
 
@@ -14,10 +14,6 @@ df -h
 
 使用modinfo命令查询模块详细内容
 
-
-
-
-
 ### **查看目录的大小**
 
 要检查某个目录的大小，你可以使用以下命令：
@@ -29,33 +25,19 @@ du -sh /path/to/directory
 - `-s`：显示总大小（summary），而不是每个文件的大小。
 - `-h`：以人类可读的形式显示大小（例如，显示为 KB、MB 或 GB，而不是字节）。
 
-例如，要查看 `/home/user` 目录的大小，可以执行：
-
-```bash
-du -sh /home/user
-```
-
 如果想查看目录中每个文件和子目录的大小，可以使用以下命令：
 
 ```bash
 du -h /path/to/directory
 ```
 
-这将递归显示目录及其内容的大小。
-
-你可以使用一些组合选项来更精确地查看目录的大小。例如：
+也可以使用一些组合选项来更精确地查看目录的大小。例如：
 
 ```bash
 du -ah /path/to/directory
 ```
 
 - `-a`：包括所有文件（不仅仅是子目录）。
-
-
-
-## 关于initramfs  
-
-Linux 启动过程中涉及的 "initramfs"（initial RAM filesystem）或 "initrd"（initial ramdisk）。这两个术语都指的是在 Linux 系统启动时加载的临时根文件系统。initramfs: 是一种用于在系统启动时挂载临时根文件系统的文件。它包含了系统引导所需的所有驱动程序和工具，并在内核加载时解压到内存中。initramfs 是一个 cpio 格式的归档文件，包含所有必要的文件和目录。initrd: 是 initramfs 的前身，也用于在系统启动时提供临时根文件系统，但它是一个预先格式化的块设备映像。在现代 Linux 系统中，initramfs 更为常用
 
 
 
@@ -87,11 +69,7 @@ https://packages.ubuntu.com/zh-cn/noble/linux-source-6.8.0
 
 
 
-以下是重新整理后的**Linux 内核编译与安装步骤**，包括 `make install` 失败的解决方案以及自定义安装的详细说明：
-
-------
-
-## **完整步骤：从编译到安装与配置**
+## linux内核完整步骤：从编译到安装与配置
 
 ### **步骤 1：准备环境**
 
@@ -258,11 +236,9 @@ https://packages.ubuntu.com/zh-cn/noble/linux-source-6.8.0
    uname -r
    ```
 
-------
+### **常见问题及解决方案**
 
-## **常见问题及解决方案**
-
-### **1. `make install` 失败的原因及解决**
+#### 1. `make install` 失败的原因及解决
 
 - **原因**：权限不足、路径问题或 Makefile 配置错误。
 
@@ -279,7 +255,7 @@ https://packages.ubuntu.com/zh-cn/noble/linux-source-6.8.0
 
 ------
 
-### **2. 如何自定义 `vmlinuz` 文件名？**
+#### 2. 如何自定义 `vmlinuz` 文件名？
 
 1. **通过 Makefile 自定义**：
 
@@ -296,7 +272,7 @@ https://packages.ubuntu.com/zh-cn/noble/linux-source-6.8.0
 
 ------
 
-### **3. GRUB 默认内核未更改**
+#### 3. GRUB 默认内核未更改
 
 - 确保新内核已添加到 GRUB 配置：
 
@@ -310,11 +286,7 @@ https://packages.ubuntu.com/zh-cn/noble/linux-source-6.8.0
   sudo grub2-set-default <menu-index>
   ```
 
-------
-
-## **总结**
-
-### **完整流程回顾**
+完整流程回顾：
 
 1. 准备环境和源码：安装依赖、解压源码、复制配置。
 2. 编译内核和模块：`make` 和 `make modules`。
